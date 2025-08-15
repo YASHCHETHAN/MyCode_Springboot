@@ -11,4 +11,5 @@ public class YashChethanController {
 		return "Hello Good Day Application UP and Running";
 	}
 	
+	
 }
