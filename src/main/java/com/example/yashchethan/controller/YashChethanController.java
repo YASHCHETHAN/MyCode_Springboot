@@ -8,7 +8,7 @@ public class YashChethanController {
 
 	@GetMapping(value = "/checkHealth")
 	public String getResponse() {
-		1return "Hello Good Day Application UP and Running";
+		return "Hello Good Day Application UP and Running";
 	}	
 	
 }
