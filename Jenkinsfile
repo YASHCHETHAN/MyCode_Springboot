@@ -26,7 +26,15 @@ pipeline {
           bat 'docker build -t yashchethandocker/yashchethan:v2 .'
         }
       }
-    }        
+    }
+    stage("Push Docker Image to Repo") {
+      steps {
+         withCredentials([string(credentialsId: 'DOCKER_CRED', variable: 'DOCKER_CRED')]) {
+           bat 'docker login -u YASHCHETHANDOCKER -p ${DOCKER_CRED}'
+           bat 'docker push yashchethandocker/yashchethan:v2'
+        }
+      }
+    }         
   }
   post {
   always {
