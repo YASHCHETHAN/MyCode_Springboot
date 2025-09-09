@@ -23,7 +23,7 @@ pipeline {
     stage("Docker Image") {
       steps {
         script {
-          bat 'docker build -t yashchethandocker/yashchethan:v2'
+          bat 'docker build -t yashchethandocker/yashchethan:v2 .'
         }
       }
     }        
