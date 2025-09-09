@@ -30,7 +30,7 @@ pipeline {
     stage("Push Docker Image to Repo") {
       steps {
          withCredentials([string(credentialsId: 'DOCKER_CRED', variable: 'DOCKER_CRED')]) {
-           bat 'docker login -u YASHCHETHANDOCKER -p ${DOCKER_CRED}'
+           bat 'docker login -u yashchethandocker -p ${DOCKER_CRED}'
            bat 'docker push yashchethandocker/yashchethan:v2'
         }
       }
