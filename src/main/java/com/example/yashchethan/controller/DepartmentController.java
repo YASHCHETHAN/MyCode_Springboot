@@ -23,6 +23,10 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
+    
+	/*
+	 * { "name": "Computer Science" }
+	 */
     @PostMapping
     public ResponseEntity<Department> createDepartment(@RequestBody Department department) {
         return ResponseEntity.ok(departmentService.createDepartment(department));

@@ -23,6 +23,9 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
+	/*
+	 * { "courseName": "Data Structures" }
+	 */
     @PostMapping
     public ResponseEntity<Course> create(@RequestBody Course course) {
         return ResponseEntity.ok(courseService.createCourse(course));

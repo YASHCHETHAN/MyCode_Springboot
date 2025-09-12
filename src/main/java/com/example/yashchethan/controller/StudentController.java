@@ -23,6 +23,9 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+	/*
+	 * { "name": "Alice Johnson", "department": { "departmentId": 1 } }
+	 */
     @PostMapping
     public ResponseEntity<Student> createStudent(@RequestBody Student student) {
         return ResponseEntity.ok(studentService.createStudent(student));

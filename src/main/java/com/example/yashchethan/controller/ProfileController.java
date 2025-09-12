@@ -21,6 +21,11 @@ public class ProfileController {
     @Autowired
     private ProfileService profileService;
 
+	/*
+	 * { "dateOfBirth": "2000-01-15", "address": "123 Main St", "student": {
+	 * "studentId": 1 } }
+	 */
+
     @PostMapping
     public ResponseEntity<Profile> create(@RequestBody Profile profile) {
         return ResponseEntity.ok(profileService.createProfile(profile));

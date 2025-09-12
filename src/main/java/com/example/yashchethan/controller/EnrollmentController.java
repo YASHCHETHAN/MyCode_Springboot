@@ -23,6 +23,10 @@ public class EnrollmentController {
     @Autowired
     private EnrollmentService enrollmentService;
 
+	/*
+	 * { "student": { "studentId": 1 }, "course": { "courseId": 2 },
+	 * "enrollmentDate": "2025-08-01" }
+	 */
     @PostMapping
     public ResponseEntity<Enrollment> create(@RequestBody Enrollment enrollment) {
         return ResponseEntity.ok(enrollmentService.createEnrollment(enrollment));
