@@ -29,7 +29,7 @@ pipeline {
     }
     stage("Push Docker Image to Repo") {
       steps {
-        withCredentials([string(credentialsId: 'dockercred', variable: 'DOCKER_PASSWORD')]) {
+        withCredentials([string(credentialsId: 'DOCKER_PASSWORD', variable: 'DOCKER_PASSWORD')]) {
           bat """
            docker login -u cgowdahs697@gmail.com -p %DOCKER_PASSWORD%
            docker push yashchethandocker/yashchethan:v2
