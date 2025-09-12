@@ -1,0 +1,38 @@
+-- One-to-Many: One Department has Many Students
+CREATE TABLE Department (
+    department_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+-- Student Table (Many Students belong to one Department)
+CREATE TABLE Student (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES Department(department_id)
+);
+
+-- One-to-One: Each Student has one unique Profile
+CREATE TABLE Profile (
+    profile_id INT PRIMARY KEY,
+    student_id INT UNIQUE,
+    date_of_birth DATE,
+    address TEXT,
+    FOREIGN KEY (student_id) REFERENCES Student(student_id)
+);
+
+-- Course Table (Many-to-Many: Students can enroll in many Courses)
+CREATE TABLE Course (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(100) NOT NULL
+);
+
+-- Many-to-Many: Student <-> Course through Enrollment
+CREATE TABLE Enrollment (
+    enrollment_id INT PRIMARY KEY,
+    student_id INT,
+    course_id INT,
+    enrollment_date DATE,
+    FOREIGN KEY (student_id) REFERENCES Student(student_id),
+    FOREIGN KEY (course_id) REFERENCES Course(course_id)
+);
